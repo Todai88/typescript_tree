@@ -1,0 +1,44 @@
+{
+  "name": "ts-node-jasmine-skaffold",
+  "description": "",
+  "version": "1.0.0",
+  "scripts": {
+    "server": "tsc --watch",
+    "test-server": "tsc --watch & nodemon --inspect --watch dist",
+    "test": "tsc && ./node_modules/.bin/jasmine",
+    "lint": "tslint --project tsconfig.json",
+    "prettier:base": "./node_modules/.bin/prettier --parser typescript --single-quote",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write && ./node_modules/.bin/typescript/tsc && npm run test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Todai88/ts-node-jasmine-skaffold"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.5.4",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.1",
+    "husky": "^4.2.3",
+    "jasmine": "^3.5.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "lodash": "^4.17.15",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "jasmine-reporters": "^2.3.2"
+  }
+}
